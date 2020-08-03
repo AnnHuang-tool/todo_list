@@ -9,6 +9,11 @@ const methodOverride = require('method-override')
 
 // const Todo = require('./models/todo') // 載入 Todo model
 
+// app.js
+// 如果在 Heroku 環境則使用 process.env.PORT
+// 否則為本地環境，使用 3000 
+const PORT = process.env.PORT || 3000
+
 // 引用路由器
 const routes = require('./routes')
 require('./config/mongoose')
@@ -96,6 +101,6 @@ app.use(routes)
 // })
 
 // 設定 port 3000
-app.listen(3000, () => {
-  console.log('express is listening on http://localhost:3000')
+app.listen(PORT, () => {
+  console.log(`express is listening on http://localhost:${PORT}`)
 })
