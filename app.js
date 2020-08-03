@@ -1,6 +1,11 @@
 // 載入 express 並建構應用程式伺服器
 const express = require('express')
 const app = express()
+// app.js
+// 如果在 Heroku 環境則使用 process.env.PORT
+// 否則為本地環境，使用 3000 
+const PORT = process.env.PORT || 3000
+
 const exphbs = require('express-handlebars');
 // 引用 body-parser
 const bodyParser = require('body-parser')
@@ -9,10 +14,7 @@ const methodOverride = require('method-override')
 
 // const Todo = require('./models/todo') // 載入 Todo model
 
-// app.js
-// 如果在 Heroku 環境則使用 process.env.PORT
-// 否則為本地環境，使用 3000 
-const PORT = process.env.PORT || 3000
+
 
 // 引用路由器
 const routes = require('./routes')
